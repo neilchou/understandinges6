@@ -35,16 +35,16 @@ console.log(firstName);                     // "Symbol(first name)"
 
 A symbol's description is stored internally in the `[[Description]]` property. This property is read whenever the symbol's `toString()` method is called either explicitly or implicitly. The `firstName` symbol's `toString()` method is called implictly by `console.log()` in this example, so the description gets printed to the log. It is not otherwise possible to access `[[Description]]` directly from code. I recommended always providing a description to make both reading and debugging symbols easier.
 
-A> ### Identifying Symbols
-A>
-A>Since symbols are primitive values, you can use the `typeof` operator to determine if a variable contains a symbol. ECMAScript 6 extends `typeof` to return `"symbol"` when used on a symbol. For example:
-A>
-A>```js
-A>let symbol = Symbol("test symbol");
-A>console.log(typeof symbol);         // "symbol"
-A>```
-A>
-A>While there are other indirect ways of determining whether a variable is a symbol, the `typeof` operator is the most accurate and preferred technique.
+### Identifying Symbols
+
+Since symbols are primitive values, you can use the `typeof` operator to determine if a variable contains a symbol. ECMAScript 6 extends `typeof` to return `"symbol"` when used on a symbol. For example:
+
+```js
+let symbol = Symbol("test symbol");
+console.log(typeof symbol);         // "symbol"
+```
+
+While there are other indirect ways of determining whether a variable is a symbol, the `typeof` operator is the most accurate and preferred technique.
 
 ## Using Symbols
 
