@@ -113,20 +113,20 @@ This example passes an array called `items` to the `createIterator()` generator 
 
 Generator functions are an important feature of ECMAScript 6, and since they are just functions, they can be used in all the same places. The rest of this section focuses on other useful ways to write generators.
 
-W> The `yield` keyword can only be used inside of generators. Use of `yield` anywhere else is a syntax error, including functions that are inside of generators, such as:
-W>
-W> ```js
-W> function *createIterator(items) {
-W>
-W>     items.forEach(function(item) {
-W>
-W>         // syntax error
-W>         yield item + 1;
-W>     });
-W> }
-W> ```
-W>
-W> Even though `yield` is technically inside of `createIterator()`, this code is a syntax error because `yield` cannot cross function boundaries. In this way, `yield` is similar to `return`, in that a nested function cannot return a value for its containing function.
+ The `yield` keyword can only be used inside of generators. Use of `yield` anywhere else is a syntax error, including functions that are inside of generators, such as:
+
+ ```js
+ function *createIterator(items) {
+
+     items.forEach(function(item) {
+
+         // syntax error
+         yield item + 1;
+     });
+ }
+ ```
+
+ Even though `yield` is technically inside of `createIterator()`, this code is a syntax error because `yield` cannot cross function boundaries. In this way, `yield` is similar to `return`, in that a nested function cannot return a value for its containing function.
 
 ### Generator Function Expressions
 
@@ -472,23 +472,23 @@ No iterator is specified, so the default iterator functions will be used. The de
 
 Arrays and sets return their values by default, while maps return the same array format that can be passed into the `Map` constructor. Weak sets and weak maps, on the other hand, do not have built-in iterators. Managing weak references means there's no way to know exactly how many values are in these collections, which also means there's no way to iterate over them.
 
-A> ### Destructuring and for-of Loops
-A>
-A> The behavior of the default iterator for maps is also helpful when used in `for-of` loops with destructuring, as in this example:
-A>
-A> ```js
-A> let data = new Map();
-A>
-A> data.set("title", "Understanding ECMAScript 6");
-A> data.set("format", "ebook");
-A>
-A> // same as using data.entries()
-A> for (let [key, value] of data) {
-A>     console.log(key + "=" + value);
-A> }
-A> ```
-A>
-A> The `for-of` loop in this code uses a destructured array to assign `key` and `value` for each entry in the map. In this way, you can easily work with keys and values at the same time without needing to access a two-item array or going back to the map to fetch either the key or the value. Using a destructured array for maps makes the `for-of` loop equally useful for maps as it is for sets and arrays.
+### Destructuring and for-of Loops
+
+The behavior of the default iterator for maps is also helpful when used in `for-of` loops with destructuring, as in this example:
+
+```js
+let data = new Map();
+
+data.set("title", "Understanding ECMAScript 6");
+data.set("format", "ebook");
+
+// same as using data.entries()
+for (let [key, value] of data) {
+    console.log(key + "=" + value);
+}
+```
+
+ The `for-of` loop in this code uses a destructured array to assign `key` and `value` for each entry in the map. In this way, you can easily work with keys and values at the same time without needing to access a two-item array or going back to the map to fetch either the key or the value. Using a destructured array for maps makes the `for-of` loop equally useful for maps as it is for sets and arrays.
 
 ### String Iterators
 
