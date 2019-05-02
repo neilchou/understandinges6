@@ -118,22 +118,22 @@ First, notice that there are two `PersonType2` declarations: a `let` declaration
 
 This example shows that while it's possible to do everything classes do without using the new syntax, the class syntax simplifies all of the functionality significantly.
 
-A> ### Constant Class Names
-A>
-A> The name of a class is only specified as if using `const` inside of the class itself. That means you can overwrite the class name outside of the class but not inside a class method. For example:
-A>
-A> ```js
-A> class Foo {
-A>    constructor() {
-A>        Foo = "bar";    // throws an error when executed
-A>    }
-A> }
-A>
-A>// but this is okay after the class declaration
-A> Foo = "baz";
-A> ```
-A>
-A> In this code, the `Foo` inside the class constructor is a separate binding from the `Foo` outside the class. The internal `Foo` is defined as if it's a `const` and cannot be overwritten. An error is thrown when the constructor attempts to overwrite `Foo` with any value. But since the external `Foo` is defined as if it's a `let` declaration, you can overwrite its value at any time.
+### Constant Class Names
+
+The name of a class is only specified as if using `const` inside of the class itself. That means you can overwrite the class name outside of the class but not inside a class method. For example:
+
+```js
+class Foo {
+constructor() {
+    Foo = "bar";    // throws an error when executed
+}
+}
+
+// but this is okay after the class declaration
+Foo = "baz";
+```
+
+ In this code, the `Foo` inside the class constructor is a separate binding from the `Foo` outside the class. The internal `Foo` is defined as if it's a `const` and cannot be overwritten. An error is thrown when the constructor attempts to overwrite `Foo` with any value. But since the external `Foo` is defined as if it's a `let` declaration, you can overwrite its value at any time.
 
 ## Class Expressions
 
