@@ -579,11 +579,11 @@ class Square extends Rectangle {
 
 The second class in this example shows the equivalent of the default constructor for all derived classes. All of the arguments are passed, in order, to the base class constructor. In this case, the functionality isn't quite correct because the `Square` constructor needs only one argument, and so it's best to manually define the constructor.
 
-W> There are a few things to keep in mind when using `super()`:
-W>
-W> 1. You can only use `super()` in a derived class. If you try to use it in a non-derived class (a class that doesn't use `extends`) or a function, it will throw an error.
-W> 1. You must call `super()` before accessing `this` in the constructor. Since `super()` is responsible for initializing `this`, attempting to access `this` before calling `super()` results in an error.
-W> 1. The only way to avoid calling `super()` is to return an object from the class constructor.
+There are a few things to keep in mind when using `super()`:
+
+1. You can only use `super()` in a derived class. If you try to use it in a non-derived class (a class that doesn't use `extends`) or a function, it will throw an error.
+2. You must call `super()` before accessing `this` in the constructor. Since `super()` is responsible for initializing `this`, attempting to access `this` before calling `super()` results in an error.
+3. The only way to avoid calling `super()` is to return an object from the class constructor.
 
 ### Shadowing Class Methods
 
