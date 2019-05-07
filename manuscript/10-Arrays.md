@@ -458,17 +458,17 @@ The left column lists the typed array constructors, and the other columns descri
 
 Typed array operations only work on a particular type of data. For example, all operations on `Int8Array` use `int8` values. The size of an element in a typed array also depends on the type of array. While an element in an `Int8Array` is a single byte long, `Float64Array` uses eight bytes per element. Fortunately, the elements are accessed using numeric indices just like regular arrays, allowing you to avoid the somewhat awkward calls to the "set" and "get" methods of `DataView`.
 
-A> ### Element Size
-A>
-A> Each typed array is made up of a number of elements, and the element size is the number of bytes each element represents. This value is stored on a `BYTES_PER_ELEMENT` property on each constructor and each instance, so you can easily query the element size:
-A>
-A> ```js
-A> console.log(UInt8Array.BYTES_PER_ELEMENT);      // 1
-A> console.log(UInt16Array.BYTES_PER_ELEMENT);     // 2
-A>
-A> let ints = new Int8Array(5);
-A> console.log(ints.BYTES_PER_ELEMENT);            // 1
-A> ```
+### Element Size
+
+Each typed array is made up of a number of elements, and the element size is the number of bytes each element represents. This value is stored on a `BYTES_PER_ELEMENT` property on each constructor and each instance, so you can easily query the element size:
+
+```js
+console.log(UInt8Array.BYTES_PER_ELEMENT);      // 1
+console.log(UInt16Array.BYTES_PER_ELEMENT);     // 2
+
+let ints = new Int8Array(5);
+console.log(ints.BYTES_PER_ELEMENT);            // 1
+```
 
 #### Creating Type-Specific Views
 
